@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+<body>
+
+<form id="Form">
+    <input type="text" id="name" placeholder="Enter Name">
+    <br><br>
+
+    <input type="password" id="password" placeholder="Enter Password">
+    <br><br>
+
+    <span id="error" style="color:red"></span>
+    <br><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+const form = document.getElementById("Form");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const password = document.getElementById("password").value;
+    const error = document.getElementById("error");
+
+    if (name === "") {
+        error.textContent = "Name field bharna hai";
+    } 
+    else if (password.length < 6) {
+        error.textContent = "Password kam se kam 6 characters ka hona chahiye";
+    } 
+    else {
+        error.textContent = "";
+        alert("Form Submitted");
+    }
+});
+</script>
+
+</body>
+</html>
